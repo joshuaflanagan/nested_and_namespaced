@@ -4,6 +4,9 @@
   <b>Title:</b>
   <%= @blog_post.title %>
 </p>
+<p>
+  <%= link_to "Add comment", new_blog_post_comment_path(@blog_post) %>
+</p>
 
 
 <%= link_to 'Edit', edit_blog_post_path(@blog_post) %> |
