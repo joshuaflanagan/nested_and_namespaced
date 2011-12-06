@@ -13,11 +13,11 @@ class Blog::CommentsController < ApplicationController
   end
 
   def create
-    @blog_comment = Blog::Post.find(params[:blog_post_id]).comments.build(params[:blog_comment])
+    @blog_comment = Blog::Post.find(params[:post_id]).comments.build(params[:blog_comment])
 
     respond_to do |format|
       if @blog_comment.save
-        format.html { redirect_to @blog_comment, notice: 'Comment was successfully created.' }
+        format.html { redirect_to blog_post_path(@blog_comment.post), notice: 'Comment was successfully created.' }
         format.json { render json: @blog_comment, status: :created, location: @blog_comment }
       else
         format.html { render action: "new" }
